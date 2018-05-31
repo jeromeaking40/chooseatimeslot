@@ -1,0 +1,34 @@
+<div class="container text-center">
+  <h1>Choose a Time</h1>
+  <p class="lead">Select a time below to book your appointment</p>
+
+  <ul *ngFor="let time of times">
+    <li (click)="open(content)">{{time}}</li>
+  </ul>
+</div>
+
+<!--Add Info Modal  -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Enter your information below to book a time</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+
+  <div class="modal-body">
+    <form class="text-center">
+      <label>Name:</label>
+      <input type="text" placeholder="Enter your first and last name" name="name">
+
+      <label>Phone Number</label>
+      <input type="tel" placeholder="Enter your phone number" name="phone">
+
+      <button class="btn btn-primary">Submit Time</button>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
