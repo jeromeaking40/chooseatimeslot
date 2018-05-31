@@ -3,8 +3,15 @@
   <p class="lead">Select a time below to book your appointment</p>
 
   <ul *ngFor="let time of times">
-    <li (click)="open(content)">{{time}}</li>
+    <li (click)="open(content)">
+      {{time.time}}
+    </li>
   </ul>
+
+  <div [hidden]="!name || !number">
+    Your information: {{name}} {{number}}
+  </div>
+
 </div>
 
 <!--Add Info Modal  -->
@@ -17,14 +24,19 @@
   </div>
 
   <div class="modal-body">
-    <form class="text-center">
-      <label>Name:</label>
-      <input type="text" placeholder="Enter your first and last name" name="name">
+    <form name="form" (ngSubmit)="submitTime()" #f="ngForm">
+      <div class="form-group form-horizontal mx-md-3">
+        <label>Name:</label>
+        <input type="text" class="form-control" placeholder="Enter your first and last name" [(ngModel)]="name" name="name">
 
-      <label>Phone Number</label>
-      <input type="tel" placeholder="Enter your phone number" name="phone">
+        <label class="pt-3">Phone Number</label>
+        <input type="tel" class="form-control" placeholder="Enter your phone number" [(ngModel)]="number" name="phone">
 
-      <button class="btn btn-primary">Submit Time</button>
+        <div class="text-center pt-3">
+          <button class="btn btn-primary">Submit Time</button>
+        </div>
+      </div>
+
     </form>
   </div>
 

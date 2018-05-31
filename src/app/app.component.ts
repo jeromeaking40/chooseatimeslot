@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +9,58 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class AppComponent {
   constructor(private modalService: NgbModal) { }
+  modalRef: NgbModalRef;
+  name: '';
+  number: '';
 
-  closeResult: string;
-  times = ["9:00", "10:00", "11:00", "12:00", "1:00", "2:00", "3:00", "4:00", "5:00"]
+  times = [
+    {
+      _id: 1,
+      time: "9:00",
+    },
+    {
+      _id: 2,
+      time: "10:00",
+    },
+    {
+      _id: 3,
+      time: "11:00",
+    },
+    {
+      _id: 4,
+      time: "12:00",
+    },
+    {
+      _id: 5,
+      time: "1:00",
+    },
+    {
+      _id: 6,
+      time: "2:00",
+    },
+    {
+      _id: 7,
+      time: "3:00",
+    },
+    {
+      _id: 8,
+      time: "4:00",
+    },
+    {
+      _id: 9,
+      time: "5:00"
+    }
+  ]
 
-  open(content) {
-    this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  submitTime() {
+    this.name = this.name;
+    this.number = this.number;
+    console.log('Time submitted');
+    this.modalRef.close();
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+  open(content) {
+    this.modalRef = this.modalService.open(content, { windowClass: 'dark-modal' })
   }
 
 }
