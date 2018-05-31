@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from './User';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { NgbModal, ModalDismissReasons, NgbModalRef, NgbActiveModal } from '@ng-
 export class AppComponent {
   constructor(private modalService: NgbModal) { }
   modalRef: NgbModalRef;
-  name: '';
+  name = '';
   number: '';
 
   times = [
@@ -53,10 +54,13 @@ export class AppComponent {
   ]
 
   submitTime() {
-    this.name = this.name;
-    this.number = this.number;
     console.log('Time submitted');
+    localStorage.setItem('name', this.name);
+    localStorage.setItem('number', this.number);
     this.modalRef.close();
+    this.name = localStorage.getItem('name');
+    // this.number = localStorage.getItem('number');
+
   }
 
   open(content) {

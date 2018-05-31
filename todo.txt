@@ -6,6 +6,8 @@ If a user clicks on a timeslot, it should render a modal
 
 In that modal window, the user is prompted to enter their name, phonenumber and hit submit
 
+The user information should get sent to the store and update the application state
+
 The timeslot the user selected is highlighted in red to indicate the slot has been taken
 
 If the user current timeslot is clicked again, it render the modal again with the user info
