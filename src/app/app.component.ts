@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons, NgbModalRef, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { User } from './User';
+import { NotificationsService } from 'angular2-notifications';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,18 +10,19 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class AppComponent {
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private notifyService: NotificationsService
+  ) { }
 
   selectedLink: string;
   modalRef: NgbModalRef;
   time: '';
   name: '';
   number: '';
-  backgroundColor: '#e6060600'
-
-  setradio(e: string): void {
-    this.selectedLink = e;
-    console.log('Appointment Time', this.selectedLink);
+  options: {
+    timeOut: 5000,
+    position: 'middle'
   }
 
   submitInfo() {
@@ -29,6 +30,7 @@ export class AppComponent {
     localStorage.setItem('name', this.name);
     console.log('Info submitted');
     this.modalRef.close();
+    this.notifyService.info('Choose A Time', ' Your infomation was submitted');
   }
 
   open(content) {

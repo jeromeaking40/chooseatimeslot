@@ -1,52 +1,47 @@
 <div class="container text-center">
+  <simple-notifications [options]="options"></simple-notifications>
   <i class="fa fa-clock-o" style="font-size: 2.3em" aria-hidden="true"></i>
   <h1>Choose a Time</h1>
   <p class="lead">Select a time below to book your appointment</p>
 
-  <div>
-    <form #f="ngForm">
-      <div class="inputGroup">
-        <label [ngStyle]="{'background-color':time === '9:00AM' ? 'red' : 'white' }"> 9:00</label>
-        <input id="radio-nine" type="radio" class="pt-2" (click)="open(content)" value="9:00AM" name="time-slot" [(ngModel)]="time">
+  <form #f="ngForm">
+    <label [ngStyle]="{'background-color':time === '9:00AM' ? 'red' : 'white' }"> 9:00AM</label>
+    <input id="radio-nine" type="radio" class="pt-2" (click)="open(content)" value="9:00AM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '10:00AM' ? 'red' : 'white' }"> 10:00</label>
-        <input id="radio-ten" type="radio" class="pt-2" (click)="open(content)" value="10:00AM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '10:00AM' ? 'red' : 'white' }"> 10:00AM</label>
+    <input id="radio-ten" type="radio" class="pt-2" (click)="open(content)" value="10:00AM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '11:00AM' ? 'red' : 'white' }"> 11:00</label>
-        <input id="radio-eleven" type="radio" class="pt-2" (click)="open(content)" value="11:00AM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '11:00AM' ? 'red' : 'white' }"> 11:00AM</label>
+    <input id="radio-eleven" type="radio" class="pt-2" (click)="open(content)" value="11:00AM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '12:00PM' ? 'red' : 'white' }"> 12:00</label>
-        <input id="radio-tweleve" type="radio" class="pt-2" (click)="open(content)" value="12:00PM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '12:00PM' ? 'red' : 'white' }"> 12:00PM</label>
+    <input id="radio-tweleve" type="radio" class="pt-2" (click)="open(content)" value="12:00PM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '1:00PM' ? 'red' : 'white' }"> 1:00</label>
-        <input id="radio-one" type="radio" class="pt-2" (click)="open(content)" value="1:00PM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '1:00PM' ? 'red' : 'white' }"> 1:00PM</label>
+    <input id="radio-one" type="radio" class="pt-2" (click)="open(content)" value="1:00PM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '2:00PM' ? 'red' : 'white' }"> 2:00</label>
-        <input id="radio-two" type="radio" class="pt-2" (click)="open(content)" value="2:00PM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '2:00PM' ? 'red' : 'white' }"> 2:00PM</label>
+    <input id="radio-two" type="radio" class="pt-2" (click)="open(content)" value="2:00PM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '3:00PM' ? 'red' : 'white' }"> 3:00</label>
-        <input id="radio-three" type="radio" class="pt-2" (click)="open(content)" value="3:00PM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '3:00PM' ? 'red' : 'white' }"> 3:00PM</label>
+    <input id="radio-three" type="radio" class="pt-2" (click)="open(content)" value="3:00PM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '4:00PM' ? 'red' : 'white' }"> 4:00</label>
-        <input id="radio-four" type="radio" class="pt-2" (click)="open(content)" value="4:00PM" name="time-slot" [(ngModel)]="time">
+    <br>
+    <label [ngStyle]="{'background-color':time === '4:00PM' ? 'red' : 'white' }"> 4:00PM</label>
+    <input id="radio-four" type="radio" class="pt-2" (click)="open(content)" value="4:00PM" name="time-slot" [(ngModel)]="time">
 
-        <br>
-        <label [ngStyle]="{'background-color':time === '5:00PM' ? 'red' : 'white' }"> 5:00</label>
-        <input id="radio-five" type="radio" class="pt-2" (click)="open(content)" value="5:00PM" name="time-slot" [(ngModel)]="time">
-      </div>
+    <br>
+    <label [ngStyle]="{'background-color':time === '5:00PM' ? 'red' : 'white' }"> 5:00PM</label>
+    <input id="radio-five" type="radio" class="pt-2" (click)="open(content)" value="5:00PM" name="time-slot" [(ngModel)]="time">
 
-      <br>
-
-    </form>
-
-  </div>
+    <br>
+  </form>
 
   <div [hidden]="!name || !number">
     <p>Your information: {{name}} {{number}}</p>

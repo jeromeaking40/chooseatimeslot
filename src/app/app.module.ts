@@ -2,10 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { MatRadioModule } from '@angular/material/radio';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { StoreModule } from '@ngrx/store';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    // MatRadioModule,
+    SimpleNotificationsModule.forRoot(),
     NgbModule.forRoot()
   ],
   providers: [],
